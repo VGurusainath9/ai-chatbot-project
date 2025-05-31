@@ -1,0 +1,32 @@
+✅ How to Set Your OpenAI API Key on Windows (Permanent Setup)
+
+1. 🔐 Get your OpenAI API key
+   - Visit: https://platform.openai.com/account/api-keys
+   - Click “Create new secret key”
+   - Copy the key (starts with sk-...)
+
+2. ⚙️ Set the API key as an environment variable
+   - Press Win + S and search: Environment Variables
+   - Click: "Edit the system environment variables"
+   - Click: "Environment Variables..."
+   - Under "User variables", click "New..."
+       - Variable name: OPENAI_API_KEY
+       - Variable value: your actual API key (e.g., sk-xxxxxxxx)
+   - Click OK → OK → OK
+
+3. 🔁 Restart your terminal (PowerShell or VS Code)
+
+4. ✅ Test it
+   - Open new terminal
+   - Run:
+     echo $env:OPENAI_API_KEY
+   - You should see your key (or part of it)
+
+5. 🧠 Use it in Python
+   Instead of writing your API key in code, use this:
+
+   import os
+   from langchain_community.chat_models import ChatOpenAI
+   llm = ChatOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+📌 This method keeps your key private and reusable!
